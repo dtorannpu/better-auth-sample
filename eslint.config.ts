@@ -5,6 +5,7 @@ import pluginReact from "eslint-plugin-react";
 import css from "@eslint/css";
 import { defineConfig } from "eslint/config";
 import reactHooks from "eslint-plugin-react-hooks";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
 
 export default defineConfig([
   {
@@ -25,6 +26,7 @@ export default defineConfig([
   pluginReact.configs.flat.recommended,
   pluginReact.configs.flat["jsx-runtime"],
   reactHooks.configs.flat.recommended,
+  eslintConfigPrettier,
   {
     files: ["**/*.css"],
     plugins: { css },
