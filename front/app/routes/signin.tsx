@@ -11,6 +11,7 @@ const SignIn = () => {
       {
         email,
         password,
+        callbackURL: "/",
       },
       {
         onRequest: (ctx) => {
@@ -20,7 +21,7 @@ const SignIn = () => {
           // redirect to home
         },
         onError: (ctx) => {
-          alert(ctx.error);
+          alert(ctx.error.message);
         },
       },
     );

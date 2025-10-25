@@ -21,7 +21,7 @@ const Signup = () => {
           // redirect to home
         },
         onError: (ctx) => {
-          alert(ctx.error);
+          alert(ctx.error.message);
         },
       },
     );
