@@ -10,25 +10,7 @@ export const meta = () => {
 };
 
 const Home = () => {
-  const navigate = useNavigate();
-
-  const handleLogout = async () => {
-    await authClient.signOut({
-      fetchOptions: {
-        onSuccess: () => {
-          navigate("/signin", { replace: true });
-        },
-      },
-    });
-  };
-
-  return (
-    <>
-      <Button type="submit" onClick={handleLogout}>
-        ログアウト
-      </Button>
-    </>
-  );
+  return <></>;
 };
 
 export default Home;

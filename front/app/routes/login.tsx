@@ -1,18 +1,25 @@
-import { Form } from "react-router";
+import { Form, useLocation, useNavigate } from "react-router";
 import { useState } from "react";
 import { authClient } from "~/lib/auth-client";
 import Button from "~/components/Button";
 
-const SignIn = () => {
+export const meta = () => {
+  return [{ title: "ログイン" }, { name: "description", content: "ログイン" }];
+};
+
+const Login = () => {
+  const location = useLocation();
+  const nvavigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const from = location.state?.from?.pathname || "/";
 
-  const signIn = async () => {
+  const login = async () => {
     await authClient.signIn.email(
       {
         email,
         password,
-        callbackURL: "/",
+        callbackURL: from,
       },
       {
         onRequest: (ctx) => {
@@ -30,9 +37,9 @@ const SignIn = () => {
 
   return (
     <div>
-      <h2 className="text-4xl font-bold dark:text-white">Sign In</h2>
+      <h2 className="text-4xl font-bold dark:text-white">ログイン</h2>
 
-      <Form onSubmit={signIn}>
+      <Form onSubmit={login}>
         <div className="grid gap-6 m-8">
           <div>
             <label
@@ -66,11 +73,18 @@ const SignIn = () => {
             />
           </div>
 
-          <Button type="submit">Sign In</Button>
+          <div>
+            <Button type="submit">ログイン</Button>
+          </div>
+          <div>
+            <Button type="button" onClick={() => nvavigate("/signup")}>
+              アカウント作成
+            </Button>
+          </div>
         </div>
       </Form>
     </div>
   );
 };
 
-export default SignIn;
+export default Login;

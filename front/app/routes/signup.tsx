@@ -3,16 +3,25 @@ import { Form } from "react-router";
 import Button from "~/components/Button";
 import { authClient } from "~/lib/auth-client";
 
+export const meta = () => {
+  return [
+    { title: "アカウント作成" },
+    { name: "description", content: "アカウント作成" },
+  ];
+};
+
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+
   const signUp = async () => {
     await authClient.signUp.email(
       {
         email,
         password,
         name,
+        callbackURL: "/",
       },
       {
         onRequest: (ctx) => {
@@ -27,9 +36,10 @@ const Signup = () => {
       },
     );
   };
+
   return (
     <div>
-      <h2 className="text-4xl font-bold dark:text-white">Sign Up</h2>
+      <h2 className="text-4xl font-bold dark:text-white">アカウント作成</h2>
       <Form onSubmit={signUp}>
         <div className="grid gap-6 m-8">
           <div>
@@ -80,7 +90,7 @@ const Signup = () => {
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>
-          <Button type="submit">Sign Up</Button>
+          <Button type="submit">作成</Button>
         </div>
       </Form>
     </div>
