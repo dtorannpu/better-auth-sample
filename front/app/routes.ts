@@ -6,16 +6,16 @@ import {
 } from "@react-router/dev/routes";
 
 export default [
-  route("/signup", "routes/signup.tsx"),
+  route("/signup", "routes/Signup.tsx"),
   route("/signup-success", "routes/SignupSuccess.tsx"),
-  route("/login", "routes/login.tsx"),
+  route("/login", "routes/Login.tsx"),
 
   layout("routes/PrivatePage.tsx", [
     layout("routes/CommonLayout.tsx", [
-      index("routes/home.tsx"),
-      route("/page1", "routes/page1.tsx"),
-      route("/page2", "routes/page2.tsx"),
-      route("/page3", "routes/page3.tsx"),
+      index("routes/Home.tsx"),
+      route("/page1", "routes/Page1.tsx"),
+      route("/page2", "routes/Page2.tsx"),
+      route("/page3", "routes/Page3.tsx"),
     ]),
   ]),
 ] satisfies RouteConfig;
