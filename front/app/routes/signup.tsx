@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form } from "react-router";
+import { Form, useNavigate } from "react-router";
 import Button from "~/components/Button";
 import { authClient } from "~/lib/auth-client";
 
@@ -11,9 +11,11 @@ export const meta = () => {
 };
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [crateButtonDisabled, setCreateButtonDisabled] = useState(false);
 
   const signUp = async () => {
     await authClient.signUp.email(
@@ -21,14 +23,14 @@ const Signup = () => {
         email,
         password,
         name,
-        callbackURL: "/",
+        callbackURL: "http://localhost:5173",
       },
       {
         onRequest: (ctx) => {
-          // show loading state
+          setCreateButtonDisabled(true);
         },
         onSuccess: (ctx) => {
-          // redirect to home
+          navigate("/signup-success", { replace: true });
         },
         onError: (ctx) => {
           alert(ctx.error.message);
@@ -90,7 +92,9 @@ const Signup = () => {
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>
-          <Button type="submit">作成</Button>
+          <Button type="submit" disabled={crateButtonDisabled}>
+            作成
+          </Button>
         </div>
       </Form>
     </div>

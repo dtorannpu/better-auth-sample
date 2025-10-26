@@ -24,6 +24,9 @@ importers:
       '@eslint/js':
         specifier: ^9.38.0
         version: 9.38.0
+      '@types/better-sqlite3':
+        specifier: ^7.6.13
+        version: 7.6.13
       '@types/node':
         specifier: ^24.9.1
         version: 24.9.1
@@ -357,6 +360,9 @@ packages:
   '@simplewebauthn/server@13.2.2':
     resolution: {integrity: sha512-HcWLW28yTMGXpwE9VLx9J+N2KEUaELadLrkPEEI9tpI5la70xNEVEsu/C+m3u7uoq4FulLqZQhgBCzR9IZhFpA==}
     engines: {node: '>=20.0.0'}
+
+  '@types/better-sqlite3@7.6.13':
+    resolution: {integrity: sha512-NMv9ASNARoKksWtsq/SHakpYAYnhBrQgGD8zkLYk/jaK8jUGn08CfEdTRgYhMypUQAfzSP8W6gNLe0q19/t4VA==}
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
@@ -1332,6 +1338,10 @@ snapshots:
       '@peculiar/asn1-schema': 2.5.0
       '@peculiar/asn1-x509': 2.5.0
       '@peculiar/x509': 1.14.0
+
+  '@types/better-sqlite3@7.6.13':
+    dependencies:
+      '@types/node': 24.9.1
 
   '@types/estree@1.0.8': {}
 

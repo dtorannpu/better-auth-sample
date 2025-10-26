@@ -7,6 +7,7 @@ import {
 
 export default [
   route("/signup", "routes/signup.tsx"),
+  route("/signup-success", "routes/SignupSuccess.tsx"),
   route("/login", "routes/login.tsx"),
 
   layout("routes/PrivatePage.tsx", [
