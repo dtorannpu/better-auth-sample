@@ -9,7 +9,7 @@ import eslintConfigPrettier from "eslint-config-prettier/flat";
 
 export default defineConfig([
   {
-    ignores: [".react-router/"],
+    ignores: [".react-router/", "dist/", "build/", "node_modules/"],
   },
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
@@ -29,7 +29,7 @@ export default defineConfig([
   eslintConfigPrettier,
   {
     files: ["**/*.css"],
-    plugins: { css },
+    plugins: { css: css as unknown as import("eslint").ESLint.Plugin },
     language: "css/css",
     extends: ["css/recommended"],
   },

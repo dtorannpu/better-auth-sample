@@ -7,9 +7,9 @@ export const meta = () => {
   return [{ title: "ログイン" }, { name: "description", content: "ログイン" }];
 };
 
-const Login = () => {
+export default function Login() {
   const location = useLocation();
-  const nvavigate = useNavigate();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const from = location.state?.from?.pathname || "/";
@@ -22,10 +22,10 @@ const Login = () => {
         callbackURL: from,
       },
       {
-        onRequest: (ctx) => {
+        onRequest: () => {
           // show loading state
         },
-        onSuccess: (ctx) => {
+        onSuccess: () => {
           // redirect to home
         },
         onError: (ctx) => {
@@ -77,7 +77,7 @@ const Login = () => {
             <Button type="submit">ログイン</Button>
           </div>
           <div>
-            <Button type="button" onClick={() => nvavigate("/signup")}>
+            <Button type="button" onClick={() => navigate("/signup")}>
               アカウント作成
             </Button>
           </div>
@@ -85,6 +85,4 @@ const Login = () => {
       </Form>
     </div>
   );
-};
-
-export default Login;
+}

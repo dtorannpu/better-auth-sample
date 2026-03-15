@@ -5,8 +5,6 @@ export const meta = () => {
   ];
 };
 
-const SignupSuccess = () => {
+export default function SignupSuccess() {
   return <div>確認メールを送信しました。</div>;
-};
-
-export default SignupSuccess;
+}

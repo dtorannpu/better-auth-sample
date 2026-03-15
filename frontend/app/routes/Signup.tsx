@@ -10,7 +10,7 @@ export const meta = () => {
   ];
 };
 
-const Signup = () => {
+export default function Signup() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -26,10 +26,10 @@ const Signup = () => {
         callbackURL: "http://localhost:5173",
       },
       {
-        onRequest: (ctx) => {
+        onRequest: () => {
           setCreateButtonDisabled(true);
         },
-        onSuccess: (ctx) => {
+        onSuccess: () => {
           navigate("/signup-success", { replace: true });
         },
         onError: (ctx) => {
@@ -99,6 +99,4 @@ const Signup = () => {
       </Form>
     </div>
   );
-};
-
-export default Signup;
+}
