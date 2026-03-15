@@ -1,3 +1,5 @@
+import H1 from "~/components/H1";
+
 export const meta = () => {
   return [
     { title: "トップページ" },
@@ -6,5 +8,9 @@ export const meta = () => {
 };
 
 export default function Home() {
-  return <></>;
+  return (
+    <>
+      <H1>トップページ</H1>
+    </>
+  );
 }

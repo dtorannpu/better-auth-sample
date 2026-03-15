@@ -16,20 +16,39 @@ const CommonLayout = () => {
   };
 
   return (
-    <>
-      <Button type="submit" onClick={handleLogout}>
-        ログアウト
-      </Button>
-
+    <div className="p-2 flex flex-col gap-4">
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/page1">ページ1</Link>
-        <Link to="/page2">ページ2</Link>
-        <Link to="/page3">ページ3</Link>
+        <Button type="submit" onClick={handleLogout}>
+          ログアウト
+        </Button>
+        <Link
+          to="/"
+          className="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white"
+        >
+          Home
+        </Link>
+        <Link
+          to="/page1"
+          className="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white"
+        >
+          ページ1
+        </Link>
+        <Link
+          to="/page2"
+          className="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white"
+        >
+          ページ2
+        </Link>
+        <Link
+          to="/page3"
+          className="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white"
+        >
+          ページ3
+        </Link>
       </nav>
 
       <Outlet />
-    </>
+    </div>
   );
 };
 
