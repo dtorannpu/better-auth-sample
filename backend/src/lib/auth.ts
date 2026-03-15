@@ -13,12 +13,12 @@ export const auth = betterAuth({
   emailVerification: {
     sendOnSignUp: true,
     autoSignInAfterVerification: true,
-    sendVerificationEmail: async ( { user, url, token }, request) => {
+    sendVerificationEmail: async ({ user, url, token }, request) => {
       await sendEmail(user.email, "test", `${url}`);
     },
     async afterEmailVerification(user, request) {
       // Your custom logic here, e.g., grant access to premium features
       console.log(`${user.email} has been successfully verified!`);
-    }
+    },
   },
 });
