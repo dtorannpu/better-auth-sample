@@ -1,4 +1,4 @@
-import { Link, Outlet, useNavigate } from "react-router";
+import { NavLink, Outlet, useNavigate } from "react-router";
 import Button from "../components/Button";
 import { authClient } from "~/lib/auth-client";
 
@@ -21,30 +21,46 @@ const CommonLayout = () => {
         <Button type="submit" onClick={handleLogout}>
           ログアウト
         </Button>
-        <Link
+        <NavLink
           to="/"
-          className="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white"
+          className={({ isActive }) =>
+            `rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white ${
+              isActive ? "bg-red-700" : ""
+            }`
+          }
         >
           Home
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/page1"
-          className="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white"
+          className={({ isActive }) =>
+            `rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white ${
+              isActive ? "bg-red-700" : ""
+            }`
+          }
         >
           ページ1
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/page2"
-          className="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white"
+          className={({ isActive }) =>
+            `rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white ${
+              isActive ? "bg-red-700" : ""
+            }`
+          }
         >
           ページ2
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/page3"
-          className="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white"
+          className={({ isActive }) =>
+            `rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white ${
+              isActive ? "bg-red-700" : ""
+            }`
+          }
         >
           ページ3
-        </Link>
+        </NavLink>
       </nav>
 
       <Outlet />
